@@ -1,6 +1,6 @@
 ﻿namespace GoogleCloud.Extensions.Configuration.Firestore.Core.Abstractions
 {
-  internal interface IFileManager
+  public interface IFileManager
   {
     string GetFileContent(string path);
   }
