@@ -14,7 +14,8 @@
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "FIRESTORECONFIG_PROJECTID": "bdtg-shared-core-prod"
       }
     },
     "GoogleCloud.Extensions.Configuration.Sample": {
