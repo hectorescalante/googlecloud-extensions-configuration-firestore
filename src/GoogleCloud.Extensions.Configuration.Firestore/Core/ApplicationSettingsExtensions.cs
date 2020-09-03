@@ -1,6 +1,9 @@
-﻿using GoogleCloud.Extensions.Configuration.Firestore.Core.Helpers;
+﻿using GoogleCloud.Extensions.Configuration.Firestore.Core.Abstractions;
+using GoogleCloud.Extensions.Configuration.Firestore.Core.Helpers;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace GoogleCloud.Extensions.Configuration.Firestore.Core
 {

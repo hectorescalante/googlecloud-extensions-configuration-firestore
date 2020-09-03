@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 
 namespace GoogleCloud.Extensions.Configuration.Firestore
 {
-  internal class FirestoreSource : JsonStreamConfigurationSource
+  public class FirestoreSource : JsonStreamConfigurationSource
   {
     private readonly ILogger _logger;
 

@@ -7,14 +7,12 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 
-[assembly: InternalsVisibleTo("GoogleCloud.Extensions.Configuration.Firestore.Tests")]
 namespace GoogleCloud.Extensions.Configuration.Firestore
 {
-  internal class FirestoreProvider : JsonStreamConfigurationProvider
+  public class FirestoreProvider : JsonStreamConfigurationProvider
   {
     private readonly ILogger _logger;
     private ApplicationSettingsManager _applicationSettings;
@@ -23,7 +21,7 @@ namespace GoogleCloud.Extensions.Configuration.Firestore
 
     public FirestoreProvider(FirestoreSource source, ILogger logger) : base(source)
     {
-      _logger = logger; 
+      _logger = logger;
       _configurationOptions = new FirestoreOptions(logger);
     }
 
@@ -32,7 +30,7 @@ namespace GoogleCloud.Extensions.Configuration.Firestore
       if (_configurationOptions.Enabled)
       {
         _logger.LogDebug($"Loading remote configuration... {DateTime.Now}");
-        _applicationSettings = new ApplicationSettingsManager(_logger, _configurationOptions, new FirestoreConnectionManager(_logger, _configurationOptions), new FileManager());
+        _applicationSettings = new ApplicationSettingsManager(_logger, _configurationOptions, new FirestoreConnectionManager(_logger, _configurationOptions), new FileManager(), new SecretsConnectionManager(_logger));
         _applicationSettings.Setup().Wait();
         _applicationSettings.CreateListeners(JsonSettingsToDictionary, ReloadSettings);
       }
@@ -61,7 +59,7 @@ namespace GoogleCloud.Extensions.Configuration.Firestore
     public void ReloadSettings(ConcurrentDictionary<string, string> remoteSettingsData)
     {
       _mutex.WaitOne();
-      
+
       //Assign the previous collected keys from all levels to the final Data dictionary.
       foreach (var item in remoteSettingsData)
       {
