@@ -1,7 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <Authors>HectorEscalante</Authors>
+    <Company>BDTG</Company>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Description>.Net Core Configuration Provider that allows developers to use Google Cloud Firestore as a Configuration Source in their applications including support for secrets stored in Google Cloud SecretManager.</Description>
+    <RepositoryUrl>https://github.com/hectorescalante/googlecloud-extensions-configuration-firestore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>.Net Core, Google Cloud Firestore, Microsoft.Extensions.Configuration, Configuration Provider, C#, Secret Manager</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
