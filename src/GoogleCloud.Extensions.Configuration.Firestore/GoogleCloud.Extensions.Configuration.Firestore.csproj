@@ -11,6 +11,7 @@
     <RepositoryUrl>https://github.com/hectorescalante/googlecloud-extensions-configuration-firestore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>.Net Core, Google Cloud Firestore, Microsoft.Extensions.Configuration, Configuration Provider, C#, Secret Manager</PackageTags>
+    <PackageIconUrl></PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
