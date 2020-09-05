@@ -18,6 +18,6 @@ namespace GoogleCloud.Extensions.Configuration.Firestore
     }
 
     public static IConfiguration WaitForFirestoreLoad(this IConfiguration configuration, int maxWaitTime = 3000) =>
-      configuration.WaitForCompleteLoad(maxWaitTime);
+      configuration.WaitForCompleteLoad(maxWaitTime).Result;
   }
 }
