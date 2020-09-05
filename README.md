@@ -1,6 +1,8 @@
 # GoogleCloud.Extensions.Configuration.Firestore
 .Net Core Configuration Provider that allows developers to use Google Cloud Firestore as a Configuration Source in their applications including support for secrets stored in Google Cloud SecretManager.
 
+[![Build status](https://dev.azure.com/hectorescalante/Github%20Projects/_apis/build/status/GoogleCloud.Extensions.Configuration.Firestore)](https://dev.azure.com/hectorescalante/Github%20Projects/_build/latest?definitionId=7)
+
 ## FirestoreOptions
 
 | Setting | Default Value | Description |
