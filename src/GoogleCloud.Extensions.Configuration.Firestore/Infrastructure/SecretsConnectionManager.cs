@@ -20,9 +20,11 @@ namespace GoogleCloud.Extensions.Configuration.Firestore.Infrastructure
 
     public void CreateClient()
     {
-      _logger.LogDebug($"Creating secret manager client ...");
       if (SecretManagerClient == null)
+      {
+        _logger.LogDebug($"Creating secret manager client ...");
         SecretManagerClient = SecretManagerServiceClient.Create();
+      }
     }
 
     public async Task<List<KeyValuePair<string, string>>> ResolveSecretsAsync(IDictionary<string, string> settings, string defaultProjectId)
@@ -30,6 +32,7 @@ namespace GoogleCloud.Extensions.Configuration.Firestore.Infrastructure
       var secretSettings = new List<KeyValuePair<string, string>>();
       foreach (var setting in settings.Where(s => s.Value.StartsWith("secret:")))
       {
+        _logger.LogInformation("Secret found: {SettingId}", setting.Key);
         CreateClient();
         var secretReference = setting.Value.Split(':');
         var projectId = secretReference.Length < 2 || string.IsNullOrEmpty(secretReference[1]) ? defaultProjectId : secretReference[1];

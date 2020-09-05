@@ -17,9 +17,7 @@ namespace GoogleCloud.Extensions.Configuration.Firestore
       return configurationBuilder.Add(new FirestoreSource(logger));
     }
 
-    public static async Task WaitForFirestoreLoad(this IConfiguration configuration)
-    {
-      await configuration.WaitForCompleteLoad();
-    }
+    public static IConfiguration WaitForFirestoreLoad(this IConfiguration configuration, int maxWaitTime = 3000) =>
+      configuration.WaitForCompleteLoad(maxWaitTime);
   }
 }

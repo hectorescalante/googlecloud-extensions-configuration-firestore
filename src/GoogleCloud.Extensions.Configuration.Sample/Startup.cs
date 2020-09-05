@@ -28,8 +28,6 @@ namespace GoogleCloud.Extensions.Configuration.Sample
     {
       services.AddControllers();
 
-      Configuration.WaitForFirestoreLoad().Wait();
-
       services.Configure<WeatherOptions>(Configuration.GetSection("Weather"));
 
     }

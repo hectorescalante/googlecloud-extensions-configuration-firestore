@@ -8,18 +8,18 @@ namespace GoogleCloud.Extensions.Configuration.Firestore.Core.Helpers
   internal static class LoadAwaiter
   {
     public static KeyValuePair<string, string> LoadStatus { get; set; } = new KeyValuePair<string, string>("FirestoreProviderStatus", "Done");
-    public static async Task WaitForCompleteLoad(this IConfiguration configuration)
+    public static IConfiguration WaitForCompleteLoad(this IConfiguration configuration, int maxWaitTime)
     {
-      var maxWaitTime = 5000;
-      var waitTime = 1000;
+      var waitTime = 100;
       var currentWaitTime = 0;
       while (configuration.GetValue<string>(LoadStatus.Key) != LoadStatus.Value)
       {
-        await Task.Delay(waitTime);
+        Task.Delay(waitTime).Wait();
         currentWaitTime += waitTime;
         if (currentWaitTime >= maxWaitTime)
           break;
       }
+      return configuration;
     }
   }
 }
