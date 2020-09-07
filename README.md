@@ -59,4 +59,20 @@ Permission Roles
 
 - Firestore: Cloud Datastore User
 - SecretManager: Secret Manager Secret Accessor
- 
+
+## Wait for complete load
+
+In some scenarios you need to access a configuration value inmediately but the remote nature of this provider takes a bit more time than the local settings providers.
+
+You could use the IConfiguration extension method *WaitForFirestoreLoad* to wait for complete configuration loading:
+
+```
+    public IConfiguration Configuration { get; }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        Configuration.WaitForFirestoreLoad();
+        ...
+    }
+
+```
