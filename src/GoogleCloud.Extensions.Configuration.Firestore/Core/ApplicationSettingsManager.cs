@@ -1,4 +1,5 @@
 ﻿using GoogleCloud.Extensions.Configuration.Firestore.Core.Abstractions;
+using GoogleCloud.Extensions.Configuration.Firestore.Core.Helpers;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Concurrent;
